@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3e595 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+.birthday-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: bounce 2s infinite;
+}
+
+.birthday-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.scroll-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.scroll-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.scroll-arrow {
+    margin-top: 5px;
+    animation: bounce 2s infinite;
+}
+
+/* Message Section */
+.message-section {
+    padding: 165px 20px 172px 20px;
+    background: linear-gradient(135deg, #647c8c 0%, #6fd9f9 100%);
+}
+
+.message-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.message-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #252033;
+    margin-bottom: 2rem;
+}
+
+.message-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #010c0f;
+    line-height: 1.8;
+}
+
+/* Cards Section */
+.cards-section {
+    padding: 95px 24px 100px 24px;
+    background: linear-gradient(135deg, #da8c8d 0%, #cd535f 100%);
+}
+
+.cards-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+.card p {
+    color: #636e72;
+    font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 20px 35px 20px;
+    background: linear-gradient(135deg, #96d6e9 0%, #5ad2f3 100%);
+    text-align: center;
+}
+
+.footer-message {
+    font-size: 1.3rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+/* Balloons Animation */
+.balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.balloon-1 {
+    left: 10%;
+    animation-delay: 0s;
+    color: #ff6b6b;
+}
+
+.balloon-2 {
+    left: 25%;
+    animation-delay: 1s;
+    color: #4ecdc4;
+}
+
+.balloon-3 {
+    left: 50%;
+    animation-delay: 2s;
+    color: #45b7d1;
+}
+
+.balloon-4 {
+    left: 75%;
+    animation-delay: 3s;
+    color: #96ceb4;
+}
+
+.balloon-5 {
+    left: 90%;
+    animation-delay: 4s;
+    color: #feca57;
+}
+
+/* Confetti Animation */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    animation: confetti-fall 3s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .birthday-title {
+        font-size: 2.5rem;
+    }
+    
+    .birthday-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .message-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cards-title {
+        font-size: 2.2rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .balloon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .birthday-title {
+        font-size: 2rem;
+    }
+    
+    .message-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cards-title {
+        font-size: 1.8rem;
+    }
+    
+    .message-section {
+        padding: 60px 0;
+    }
+    
+    .cards-section {
+        padding: 60px 0;
+    }
+}

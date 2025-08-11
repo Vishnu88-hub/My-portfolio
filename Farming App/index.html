@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Farming - Crop Suggestions</title>
+    <meta
+      name="description"
+      content="Smart farming application with crop suggestions based on soil and weather conditions"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>🌱 Smart Farming</h2>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#resources" class="nav-link">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="#crop-suggestions" class="nav-link">Crop Suggestions</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Smart Farming Solutions</h1>
+          <p class="hero-subtitle">
+            Get intelligent crop suggestions based on your soil conditions and
+            weather patterns
+          </p>
+          <button
+            class="cta-button"
+            onclick="navigateToSection('crop-suggestions')"
+          >
+            Get Started 🚀
+          </button>
+        </div>
+        <div class="hero-image">
+          <div class="floating-card">
+            <div class="card-icon">🌾</div>
+            <h3>Crop Analysis</h3>
+            <p>AI-powered recommendations</p>
+          </div>
+          <div class="floating-card">
+            <div class="card-icon">🌡️</div>
+            <h3>Weather Insights</h3>
+            <p>Real-time conditions</p>
+          </div>
+          <div class="floating-card">
+            <div class="card-icon">🌱</div>
+            <h3>Soil Health</h3>
+            <p>pH and composition analysis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+      <div class="container">
+        <h2 class="section-title">Farming Resources</h2>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">📚</div>
+            <h3>Farming Guides</h3>
+            <p>
+              Comprehensive guides for different crops and farming techniques
+            </p>
+            <button class="resource-btn">Learn More</button>
+          </div>
+          <div class="resource-card">
+            <div class="resource-icon">🌦️</div>
+            <h3>Weather Forecast</h3>
+            <p>
+              7-day weather predictions and climate insights for your region
+            </p>
+            <button class="resource-btn">Check Weather</button>
+          </div>
+          <div class="resource-card">
+            <div class="resource-icon">💡</div>
+            <h3>Expert Tips</h3>
+            <p>
+              Professional advice from agricultural experts and experienced
+              farmers
+            </p>
+            <button class="resource-btn">Get Tips</button>
+          </div>
+          <div class="resource-card">
+            <div class="resource-icon">📊</div>
+            <h3>Market Prices</h3>
+            <p>Current market rates and price trends for various crops</p>
+            <button class="resource-btn">View Prices</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crop Suggestions Section -->
+    <section id="crop-suggestions" class="section">
+      <div class="container">
+        <h2 class="section-title">Crop Suggestions</h2>
+        <div class="crop-suggestions-content">
+          <div class="form-container">
+            <form id="cropForm" class="crop-form">
+              <div class="form-group">
+                <label for="soilPh">Soil pH Value</label>
+                <input
+                  type="number"
+                  id="soilPh"
+                  min="0"
+                  max="14"
+                  step="0.1"
+                  placeholder="Enter pH value (0-14)"
+                  required
+                />
+                <div class="ph-indicator">
+                  <span class="ph-acidic">Acidic (0-7)</span>
+                  <span class="ph-neutral">Neutral (7)</span>
+                  <span class="ph-alkaline">Alkaline (7-14)</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="weather">Weather Conditions</label>
+                <select id="weather" required>
+                  <option value="">Select weather condition</option>
+                  <option value="sunny">Sunny</option>
+                  <option value="rainy">Rainy</option>
+                  <option value="cloudy">Cloudy</option>
+                  <option value="humid">Humid</option>
+                  <option value="dry">Dry</option>
+                  <option value="windy">Windy</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="soilType">Soil Type</label>
+                <select id="soilType" required>
+                  <option value="">Select soil type</option>
+                  <option value="clay">Clay</option>
+                  <option value="sandy">Sandy</option>
+                  <option value="loamy">Loamy</option>
+                  <option value="silty">Silty</option>
+                  <option value="peaty">Peaty</option>
+                  <option value="chalky">Chalky</option>
+                </select>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Get Crop Suggestions 🌾
+              </button>
+            </form>
+          </div>
+
+          <div class="results-container">
+            <div id="loadingSpinner" class="loading-spinner hidden">
+              <div class="spinner"></div>
+              <p>Analyzing your conditions...</p>
+            </div>
+
+            <div id="suggestions" class="suggestions hidden">
+              <h3>Recommended Crops</h3>
+              <div id="cropResults" class="crop-results"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Smart Farming</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Empowering Farmers with Technology</h3>
+            <p>
+              Smart Farming is dedicated to helping farmers make informed
+              decisions about crop selection based on scientific data and
+              environmental conditions. Our platform combines traditional
+              farming wisdom with modern technology to optimize agricultural
+              productivity.
+            </p>
+
+            <div class="features">
+              <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">
+                  <h4>Precision Agriculture</h4>
+                  <p>Data-driven recommendations for optimal crop selection</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-text">
+                  <h4>Sustainable Farming</h4>
+                  <p>Environmentally conscious agricultural practices</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">📈</div>
+                <div class="feature-text">
+                  <h4>Increased Yield</h4>
+                  <p>Maximize your harvest with smart crop choices</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="stats-card">
+              <div class="stat">
+                <h4>10,000+</h4>
+                <p>Farmers Helped</p>
+              </div>
+              <div class="stat">
+                <h4>95%</h4>
+                <p>Success Rate</p>
+              </div>
+              <div class="stat">
+                <h4>50+</h4>
+                <p>Crop Varieties</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>
+              Have questions about crop suggestions or need personalized farming
+              advice? We're here to help!
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <div>
+                  <h4>Email</h4>
+                  <p>support@smartfarming.com</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <h4>Address</h4>
+                  <p>123 Farm Street, Agriculture City, AC 12345</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                placeholder="How can we help?"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Tell us more about your farming needs..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message 📤</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
