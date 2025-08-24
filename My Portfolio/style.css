@@ -90,23 +90,24 @@
   }
 
   .nav-title:hover{
+    cursor: pointer;
     color: var(--accent-primary);
-    transform: translateY(-6px);
   }
 
   .nav-title::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
+    left: 186px;
     width: 0;
     height: 2px;
+    transition: width 0.3s ease;
     background: var(--gradient-primary);
   }
   
-  .nav-title:hover::after {
+  /* .nav-title:hover::after {
     width: 24%;
-  }
+  } */
   
   .nav-menu {
     display: flex;
@@ -434,7 +435,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: pulse 2s infinite;
+    /* animation: pulse 5s infinite; */
+  }
+
+  .profile-pic-placeholder:hover{
+    transform: scale(1.1);
   }
   
   .about-paragraphs p {
